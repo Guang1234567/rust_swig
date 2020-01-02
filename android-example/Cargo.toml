@@ -5,16 +5,35 @@ authors = ["Evgeniy A. Dushistov <dushistov@mail.ru>"]
 build = "build.rs"
 edition = "2018"
 
+
 [lib]
 name = "mobcore"
 crate-type = ["cdylib"]
 
+
 [dependencies]
 log = "0.4.6"
-log-panics = "2.0"
-android_logger = "0.8"
+log-panics = {version = "2.0.0", features = ["with-backtrace"]}
+time = "0.1.42"
+dotenv = "0.10"
+load-dotenv = {path = "./third_part_libs/load-dotenv"}
+lazy_static = "1.4.0"
+num_cpus = "1.0"
+chrono = "0.4.10"
+
+
+[target.'cfg(target_os="android")'.dependencies]
 jni-sys = "0.3.0"
+android_logger = "0.8"
+rusqlite = {version = "0.20.0", features = ["bundled"]}
+diesel = { version = "1.4.3", features = ["sqlite"] }
+diesel_migrations = "1.4.0"
+
 
 [build-dependencies]
 rust_swig = { path = "../macroslib" }
-env_logger = "0.7"
+bindgen = "0.49.0"
+walkdir = "2.2.7"
+dotenv = "0.10"
+load-dotenv = {path = "./third_part_libs/load-dotenv"}
+lazy_static = "1.4.0"

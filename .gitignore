@@ -9,3 +9,4 @@ target/
 /macroslib/target/
 .vscode
 Cargo.lock
+.DS_Store

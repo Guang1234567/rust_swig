@@ -1,7 +1,30 @@
+[source.crates-io]
+registry = "https://github.com/rust-lang/crates.io-index"
+#replace-with = 'ustc'
+#[source.ustc]
+#registry = "https://mirrors.ustc.edu.cn/crates.io-index"
+
+
+# config android ndk toolchains for rust
 [target.aarch64-linux-android]
-linker = "aarch64-linux-android21-clang++"
+ar = "../../../../dev_kit/sdk/toolchain-wrapper/aarch64-linux-android-ar"
+linker = "../../../../dev_kit/sdk/toolchain-wrapper/aarch64-linux-android-clang"
 runner = "./run-on-android.sh"
 
-[target.arm-linux-androideabi]
-linker = "armv7a-linux-androideabi21-clang++"
+
+[target.armv7-linux-androideabi]
+ar = "../../../../dev_kit/sdk/toolchain-wrapper/arm-linux-androideabi-ar"
+linker = "../../../../dev_kit/sdk/toolchain-wrapper/armv7-linux-androideabi-clang"
+runner = "./run-on-android.sh"
+
+
+[target.i686-linux-android]
+ar = "../../../../dev_kit/sdk/toolchain-wrapper/i686-linux-android-ar"
+linker = "../../../../dev_kit/sdk/toolchain-wrapper/x86-linux-android-clang"
+runner = "./run-on-android.sh"
+
+
+[target.x86_64-linux-android]
+ar = "../../../../dev_kit/sdk/toolchain-wrapper/x86_64-linux-android-ar"
+linker = "../../../../dev_kit/sdk/toolchain-wrapper/x86_64-linux-android-clang"
 runner = "./run-on-android.sh"
